@@ -1,0 +1,31 @@
+<!-- Page header -->
+<div class="row align-items-center mb-7">
+    <div class="col-auto">
+        <!-- Avatar -->
+        <div class="avatar avatar-xl rounded text-success">
+            <app-icon [name]="icon()" [size]="28" />
+        </div>
+    </div>
+    <div class="col">
+        <!-- Breadcrumb -->
+        @if (crumbs().length > 1) {
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-1 small">
+                    @for (crumb of crumbs(); track $index; let last = $last) {
+                        @if (last) {
+                            <li class="breadcrumb-item active" aria-current="page">{{ crumb }}</li>
+                        } @else {
+                            <li class="breadcrumb-item text-body-secondary">{{ crumb }}</li>
+                        }
+                    }
+                </ol>
+            </nav>
+        }
+
+        <!-- Heading -->
+        <h1 class="fs-4 mb-0">{{action()}}</h1>
+    </div>
+    <div class="col-12 col-sm-auto mt-4 mt-sm-0">
+        <ng-content></ng-content>
+    </div>
+</div>

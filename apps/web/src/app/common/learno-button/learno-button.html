@@ -1,0 +1,14 @@
+
+
+<button
+  [class]="`btn btn-${btnColor()} d-inline-flex align-items-center justify-content-center gap-1 w-100`"
+  (click)="clicked.emit()" [disabled]="isLoading()">
+  @if (!isLoading()){
+    @if (icon()){
+      <app-icon [name]="icon()" [size]="16" />
+    }
+    {{text()}}
+  } @else {
+    <span class="loader"></span>
+  }
+</button>
